@@ -1,0 +1,141 @@
+/* Save this file as styles/signup.css */
+
+/* Import basic styles and variables from index.css 
+   We will rely on the index.css being linked first in the HTML for variables/buttons.
+*/
+
+/* --- Page Layout --- */
+body {
+  background-color: var(--background-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.signup-container {
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
+}
+
+/* --- Authentication Box (The Card) --- */
+.auth-box {
+  background-color: var(--text-light);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Header/Logo (Centered within the sign-up context) */
+.auth-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.auth-header .logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+/* Titles and Subtitles */
+.auth-box h2 {
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  margin-bottom: 30px;
+}
+
+/* --- Form Styling --- */
+.auth-form {
+  text-align: left;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--text-dark);
+}
+
+.auth-form input:not([type="checkbox"]) {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: border-color var(--transition-time),
+    box-shadow var(--transition-time);
+}
+
+.auth-form input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+/* Specific Checkbox Group Styling */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px; /* More spacing before the submit button */
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 10px;
+  /* Optional: Style the checkbox more customly if needed */
+}
+
+.checkbox-group .inline-label {
+  display: inline;
+  font-weight: 400; /* Less heavy for descriptive text */
+  margin-bottom: 0;
+}
+
+/* Primary Button style (Reused from index.css) */
+.primary-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  transition: background-color var(--transition-time);
+}
+
+.primary-button:hover {
+  background-color: #0056b3;
+}
+
+/* Link to Log In */
+.switch-link {
+  margin-top: 25px;
+  font-size: 0.95rem;
+}
+
+.switch-link a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.switch-link a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,122 @@
+/* Basic Reset and Variables */
+:root {
+  --primary-color: #007bff; /* A nice blue for primary actions */
+  --secondary-color: #6c757d; /* Grey for secondary text/borders */
+  --background-light: #f4f7f6;
+  --text-dark: #333;
+  --text-light: #fff;
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --border-radius: 8px;
+  --transition-time: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: 1.6;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+}
+
+/* --- Header & Navigation --- */
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background-color: var(--text-light);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+}
+
+.nav-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: var(--border-radius);
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color var(--transition-time),
+    opacity var(--transition-time);
+
+  /* FIX: Remove underline from anchor tags (buttons) */
+  text-decoration: none;
+}
+
+.nav-button:hover {
+  opacity: 0.9;
+}
+
+/* Secondary Button Style (Log In) */
+.nav-button {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+/* Primary Button Style (Sign Up) */
+.nav-button.primary,
+.cta-button {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: 2px solid var(--primary-color);
+}
+
+.nav-button.primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  border-color: #0056b3;
+}
+
+/* --- Hero Section --- */
+
+.hero-section {
+  text-align: center;
+  padding: 100px 5%;
+  background: linear-gradient(
+    135deg,
+    #e9ecef,
+    #adb5bd
+  ); /* Subtle gradient background */
+  margin-bottom: 20px;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: #212529;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: var(--secondary-color);
+}
+
+.cta-button {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: var(--border-radius);
+  transition: transform var(--transition-time);
+
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px); /* Slight lift on hover */
+}

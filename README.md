@@ -1,13 +1,16 @@
-#FitTrack API: Precision Nutrition Backend##📝 Overview & PurposeThe **FitTrack API** is a high-performance, RESTful service designed to manage user authentication, nutritional data, and fitness goal tracking. Built with a focus on **data integrity, speed, and scalability**, the API provides the reliable backbone for the FitTrack client application.
+# FitTrack API: Precision Nutrition Backend
 
-###Architectural Highlights\* **Type Safety:** Uses TypeScript and Prisma for end-to-end data validation and schema integrity.
+## 📝 Overview & PurposeThe **FitTrack API** is a high-performance, RESTful service designed to manage user authentication, nutritional data, and fitness goal tracking. Built with a focus on **data integrity, speed, and scalability**, the API provides the reliable backbone for the FitTrack client application.
 
+### Architectural Highlights\*
+
+- **Type Safety:** Uses TypeScript and Prisma for end-to-end data validation and schema integrity.
 - **Decoupling:** Fully separated API layer ensures independent scaling from the frontend client.
 - **Goal Management:** Implements advanced status logic (e.g., automatically setting the previous goal to `PAUSED` when a new one is set to `ACTIVE`).
 
 ---
 
-##⚙️ Technology StackThe project utilizes a robust and modern stack for maximum performance and maintainability:
+## ⚙️ Technology StackThe project utilizes a robust and modern stack for maximum performance and maintainability:
 
 | Category             | Technology            | Purpose                                                                      |
 | -------------------- | --------------------- | ---------------------------------------------------------------------------- |
@@ -31,14 +34,14 @@
 
 ---
 
-##🐳 Getting Started (Local Development)This project relies on Docker for running required services (PostgreSQL and Redis).
+## 🐳 Getting Started (Local Development)This project relies on Docker for running required services (PostgreSQL and Redis).
 
-###Prerequisites\* Node.js (LTS version)
+### Prerequisites\* Node.js (LTS version)
 
 - npm (or yarn)
 - **Docker Desktop** (must be running)
 
-###Installation & Run Steps1. **Clone the Repository:**
+### Installation & Run Steps1. **Clone the Repository:**
 
 ```bash
 git clone https://github.com/elonavr/FitTrack-API.git
@@ -81,7 +84,7 @@ npm run start
 
 ---
 
-##🎯 Key API Endpoints (Goals & Food Items)This is a selection of the core endpoints managed by the API:
+## 🎯 Key API Endpoints (Goals & Food Items)This is a selection of the core endpoints managed by the API:
 
 | Category  | Endpoint                  | Method | Description                                                                   |
 | --------- | ------------------------- | ------ | ----------------------------------------------------------------------------- |
@@ -91,4 +94,5 @@ npm run start
 | **Food**  | `/api/fooditem`           | `GET`  | Retrieves all food items (Cached).                                            |
 | **Food**  | `/api/fooditem/:id`       | `GET`  | Retrieves detailed item info (Cached).                                        |
 | **Food**  | `/api/fooditem`           | `POST` | Creates a new food item (Invalidates Cache).                                  |
+
 # FitTrack-Client
