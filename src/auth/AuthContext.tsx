@@ -22,7 +22,11 @@ async function login(email: string, password: string) {
 }
 
 async function signup(username: string, email: string, password: string) {
-  await apiCall("/users/signup", "POST", { username, email, password });
+  const res = await apiCall<LoginResponse>("/users/signup", "POST", { username, email, password });
+  if (!res.token || !res.user?.username) {
+    throw new Error("Sign up failed: Missing authentication token.");
+  }
+  saveSession(res.token, res.user.username); // GuestRoute then moves the user into the app
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {

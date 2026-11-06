@@ -1,11 +1,10 @@
 import { useState, type FormEvent } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import { AuthLayout, Button, Field, Input, Message } from "../components/ui";
 
 export default function Login() {
   const { login } = useAuth();
-  const signedUp = (useLocation().state as { signedUp?: boolean } | null)?.signedUp;
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -29,7 +28,6 @@ export default function Login() {
 
   return (
     <AuthLayout title="Welcome Back" subtitle="Log in to track your fitness progress.">
-      {signedUp && !error && <Message tone="success">Sign up successful! Please log in.</Message>}
       <form onSubmit={onSubmit} className="mt-4">
         <Field label="Email Address" id="email">
           <Input type="email" id="email" name="email" placeholder="enter your email" autoComplete="email" required />

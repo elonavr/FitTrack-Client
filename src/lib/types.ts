@@ -16,15 +16,38 @@ export interface GoalPlan {
   createdAt: string;
 }
 
-export interface NewGoalPlan {
-  goalName: string;
-  calorieGoal: number;
-  proteinGoal: number;
-  carbGoal: number;
-  fatGoal: number;
-}
-
 export interface LoginResponse {
   token: string;
   user: { username: string };
+}
+
+export type Gender = "MALE" | "FEMALE";
+
+export interface BodyProfile {
+  gender: Gender;
+  age: number;
+  heightCm: number;
+  weightKg: number;
+  trainingDaysPerWeek: number;
+}
+
+export type Profile = { [K in keyof BodyProfile]: BodyProfile[K] | null } & {
+  onboardingCompleted: boolean;
+  restingCalories: number | null;
+  maintenanceCalories: number | null;
+};
+
+export type PlanType = "CUT" | "MAINTENANCE" | "BULK";
+
+export interface PlanTargets {
+  type: PlanType;
+  calories: number;
+  protein: number;
+  carb: number;
+  fat: number;
+}
+
+export interface PlansResponse {
+  maintenanceCalories: number;
+  plans: PlanTargets[];
 }
