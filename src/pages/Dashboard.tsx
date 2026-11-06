@@ -1,0 +1,51 @@
+import { useAuth } from "../auth/AuthContext";
+import { Button, Card, Field, Header, Input } from "../components/ui";
+import { GoalForm } from "../features/goals/GoalForm";
+import { GoalList } from "../features/goals/GoalList";
+
+export default function Dashboard() {
+  const { userName, logout } = useAuth();
+
+  return (
+    <>
+      <Header>
+        <h3 className="text-lg font-semibold">{userName ? `Hello, ${userName}!` : "Hello!"}</h3>
+        <Button onClick={logout}>Log Out</Button>
+      </Header>
+
+      <main className="mx-auto grid max-w-6xl gap-8 px-[5%] py-8 md:grid-cols-2">
+        {/* Placeholders carried over from the static dashboard; not wired to the API yet. */}
+        <Card title="🎯 Daily Goal Status">
+          <div className="mb-6 rounded bg-[#f8f8f8] p-4">
+            <p>Loading your current goals...</p>
+          </div>
+          <Button size="lg" disabled>Reset Day Goals</Button>
+        </Card>
+
+        <Card title="🍽️ Log Your Meal">
+          <form onSubmit={(e) => e.preventDefault()}>
+            <p className="mb-3">Select a food and quantity:</p>
+            <Field label="Food Item ID (e.g., 1)" id="food-item">
+              <Input type="number" id="food-item" defaultValue={1} />
+            </Field>
+            <Field label="Quantity (Servings)" id="quantity">
+              <Input type="number" id="quantity" defaultValue={1} />
+            </Field>
+            <Button type="submit" size="lg" disabled>Add to Tracker</Button>
+          </form>
+        </Card>
+
+        <Card title="📊 Recent Activity">
+          <p>Your last logged meals will appear here.</p>
+        </Card>
+
+        <Card title="➕ Add New Goal" className="md:col-span-2">
+          <GoalForm />
+          <hr className="my-8" />
+          <h2 className="mb-5 border-b border-gray-200 pb-2 text-2xl font-semibold text-primary">📝 Your Goal Plans</h2>
+          <GoalList />
+        </Card>
+      </main>
+    </>
+  );
+}
