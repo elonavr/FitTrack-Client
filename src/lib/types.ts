@@ -51,3 +51,14 @@ export interface PlansResponse {
   maintenanceCalories: number;
   plans: PlanTargets[];
 }
+
+export interface FoodItem {
+  id: number;
+  foodName: string;
+  caloriesPerServing: Decimal;
+  proteinPerServing: Decimal;
+  carbPerServing: Decimal;
+  fatPerServing: Decimal;
+}
+
+export type NewFoodItem = Omit<FoodItem, "id">;
