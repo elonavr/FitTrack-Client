@@ -40,6 +40,9 @@ export default function Dashboard() {
     <>
       <Header>
         <h3 className="text-lg font-semibold">{userName ? `Hello, ${userName}!` : "Hello!"}</h3>
+        <Link to="/food-items" className={buttonClass("outline", "sm")}>
+          Food Items
+        </Link>
         <Button onClick={logout}>Log Out</Button>
       </Header>
 
