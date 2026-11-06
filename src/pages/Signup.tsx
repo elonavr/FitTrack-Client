@@ -1,11 +1,10 @@
 import { useState, type FormEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import { AuthLayout, Button, Field, Input, Message } from "../components/ui";
 
 export default function Signup() {
   const { signup } = useAuth();
-  const navigate = useNavigate();
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
 
@@ -20,8 +19,7 @@ export default function Signup() {
     setError(null);
     setSubmitting(true);
     try {
-      await signup(username, email, password);
-      navigate("/login", { state: { signedUp: true } });
+      await signup(username, email, password); // session saved; GuestRoute redirects into the app
     } catch (err) {
       setError((err as Error).message);
       setSubmitting(false);

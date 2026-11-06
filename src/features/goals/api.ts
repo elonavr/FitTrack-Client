@@ -1,8 +1,8 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { apiCall } from "../../lib/api";
-import type { GoalPlan, NewGoalPlan } from "../../lib/types";
+import type { GoalPlan } from "../../lib/types";
 
-const GOALS_KEY = ["goals"];
+export const GOALS_KEY = ["goals"];
 
 export function useGoals() {
   return useQuery({
@@ -14,21 +14,7 @@ export function useGoals() {
   });
 }
 
-function useGoalMutation<V>(fn: (vars: V) => Promise<unknown>) {
-  const qc = useQueryClient();
-  return useMutation({
-    mutationFn: fn,
-    onSuccess: () => qc.invalidateQueries({ queryKey: GOALS_KEY }),
-  });
+export function useActiveGoal() {
+  const query = useGoals();
+  return { ...query, data: query.data?.find((g) => g.status === "ACTIVE") };
 }
-
-export const useCreateGoal = () =>
-  useGoalMutation((goal: NewGoalPlan) => apiCall("/goals", "POST", goal));
-
-export const useSetGoalStatus = () =>
-  useGoalMutation(({ id, active }: { id: number; active: boolean }) =>
-    apiCall(`/goals/${id}/${active ? "activate" : "pause"}`, "PUT")
-  );
-
-export const useDeleteGoal = () =>
-  useGoalMutation((id: number) => apiCall(`/goals/${id}`, "DELETE"));
