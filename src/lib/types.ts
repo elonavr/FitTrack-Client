@@ -62,3 +62,16 @@ export interface FoodItem {
 }
 
 export type NewFoodItem = Omit<FoodItem, "id">;
+
+export interface ScannedProduct {
+  barcode: string;
+  name: string;
+  brand: string | null;
+  imageUrl: string | null;
+  per100g: {
+    calories: number | null;
+    protein: number | null;
+    carb: number | null;
+    fat: number | null;
+  };
+}

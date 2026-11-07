@@ -145,6 +145,9 @@ export default function FoodItems() {
         <Link to="/dashboard" className={buttonClass("outline", "sm")}>
           Dashboard
         </Link>
+        <Link to="/scan" className={buttonClass("outline", "sm")}>
+          Scan
+        </Link>
         <Button onClick={logout}>Log Out</Button>
       </Header>
 
