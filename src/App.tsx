@@ -6,6 +6,7 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Welcome from "./pages/Welcome";
 import FoodItems from "./pages/FoodItems";
+import Scan from "./pages/Scan";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route element={<OnboardedRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/food-items" element={<FoodItems />} />
+          <Route path="/scan" element={<Scan />} />
         </Route>
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />

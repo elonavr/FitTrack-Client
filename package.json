@@ -7,17 +7,26 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "typecheck": "tsc -b --noEmit",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:phone": "vite --mode phone",
+    "build:ios": "tsc -b && vite build --mode ios && cap sync ios",
+    "ios": "npm run build:ios && cap open ios"
   },
   "dependencies": {
+    "@capacitor-mlkit/barcode-scanning": "^7.5.0",
+    "@capacitor/core": "^7.6.10",
+    "@capacitor/ios": "^7.6.10",
     "@tanstack/react-query": "^5.62.0",
+    "@zxing/browser": "0.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
+    "@capacitor/cli": "^7.6.10",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-basic-ssl": "^1.2.0",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",

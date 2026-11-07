@@ -43,6 +43,9 @@ export default function Dashboard() {
         <Link to="/food-items" className={buttonClass("outline", "sm")}>
           Food Items
         </Link>
+        <Link to="/scan" className={buttonClass("outline", "sm")}>
+          Scan
+        </Link>
         <Button onClick={logout}>Log Out</Button>
       </Header>
 
